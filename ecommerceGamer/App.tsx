@@ -6,7 +6,6 @@ import { AppLoading } from "expo";
 import {
   useFonts,
   Roboto_300Light,
-  Roboto_400Regular,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
 
@@ -15,7 +14,6 @@ import Routes from "./src/routes";
 export default function App() {
   let [fontsLoaded] = useFonts({
     Roboto_300Light,
-    Roboto_400Regular,
     Roboto_700Bold,
   });
 
