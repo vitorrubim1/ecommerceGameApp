@@ -1,16 +1,10 @@
 import * as React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Games from "../../components/Games";
+import { styles } from "./styles";
 
 export default function Home() {
   const navigation = useNavigation();
@@ -26,7 +20,9 @@ export default function Home() {
         <View style={styles.textContainer}>
           <Text style={styles.text}>JOGOS</Text>
           <Text style={styles.text}> • </Text>
-          <Text style={[styles.text, { color: "#9e9e9e" }]}>NOME JOGO</Text>
+          <Text style={[styles.text, { color: "#9e9e9e" }]}>
+            Filtro aplicado
+          </Text>
 
           <TouchableOpacity style={styles.filterButton}>
             <MaterialIcons name="filter-list" size={24} color="#000" />
@@ -50,6 +46,7 @@ export default function Home() {
           <Games
             image={require("../../assets/horizon-zero-dawn.png")}
             cost="R$200.00"
+            score="500"
             onClick={() => navigation.navigate("Details")}
           >
             Orizon TOP
@@ -57,7 +54,8 @@ export default function Home() {
           <Games
             image={require("../../assets/the-witcher-iii-wild-hunt.png")}
             cost="R$70.00"
-            onClick={() => alert("eae")}
+            score="500"
+            onClick={() => navigation.navigate("Details")}
           >
             The Witcher
           </Games>
@@ -66,49 +64,3 @@ export default function Home() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: "100%",
-    backgroundColor: "#FFF",
-  },
-
-  header: {
-    marginBottom: 8,
-  },
-
-  bannerImage: {
-    width: "100%",
-    height: 145,
-    resizeMode: "contain",
-  },
-
-  textContainer: {
-    flexDirection: "row",
-    marginVertical: "5%",
-    marginHorizontal: "5%",
-  },
-
-  text: {
-    fontFamily: "Roboto_700Bold",
-    fontSize: 20,
-    marginHorizontal: "1%",
-  },
-
-  filterButton: {
-    position: "absolute",
-    right: 0,
-    alignSelf: "center",
-  },
-
-  line: {
-    borderBottomColor: "rgba(158, 158, 158, 0.287)",
-    borderBottomWidth: 1,
-  },
-
-  gamesContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-  },
-});
