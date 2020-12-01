@@ -1,5 +1,7 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity, Image, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
+
+import { styles } from "./styles";
 
 export default function Games(props) {
   function handleFilterDescription(description) {
@@ -15,28 +17,13 @@ export default function Games(props) {
         {handleFilterDescription(`${props.children}`)}
       </Text>
       <View opacity={0.5}>
-        <Text style={styles.gamePrice}>{props.cost}</Text>
+        <Text>{props.cost}</Text>
+      </View>
+
+      <View style={styles.score}>
+        <Text style={{ fontFamily: "Roboto_700Bold" }}>Score: </Text>
+        <Text style={{ color: "#ad1919" }}>{props.score}</Text>
       </View>
     </TouchableOpacity>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    paddingVertical: "2%",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  gameImage: {
-    width: 170,
-    height: 170,
-  },
-
-  gameName: {
-    fontSize: 16,
-    fontFamily: "Roboto_700Bold",
-  },
-
-  gamePrice: {},
-});
