@@ -20,7 +20,7 @@ export default function Routes() {
         <Stack.Screen
           name="Details"
           component={Details}
-          options={{ headerShown: false }}
+          options={{ headerShown: true }}
         />
       </Stack.Navigator>
     </NavigationContainer>
