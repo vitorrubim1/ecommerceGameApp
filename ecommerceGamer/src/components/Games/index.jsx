@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 import { styles } from "./styles";
@@ -12,7 +12,11 @@ export default function Games(props) {
 
   return (
     <TouchableOpacity style={styles.container} onPress={props.onClick}>
-      <Image source={props.image} style={styles.gameImage} />
+      <Image
+        // source={require(`../../assets/${props.image}`)}
+        source={require(`../../assets/call-of-duty-infinite-warfare.png`)}
+        style={styles.gameImage}
+      />
       <Text style={styles.gameName}>
         {handleFilterDescription(`${props.children}`)}
       </Text>

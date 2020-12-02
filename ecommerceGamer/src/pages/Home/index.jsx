@@ -1,13 +1,24 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
 import Games from "../../components/Games";
 import { styles } from "./styles";
+import dataMock from "../../services/products.json";
 
 export default function Home() {
+  const [dataGame, setDataGame] = useState([]);
+
   const navigation = useNavigation();
+
+  useEffect(() => {
+    setDataGame(dataMock);
+  }, []);
+
+  function handleNavigateToDetails(id) {
+    navigation.navigate("Details", { id });
+  }
 
   return (
     <View style={styles.container}>
@@ -43,22 +54,17 @@ export default function Home() {
         </Text>
 
         <View style={styles.gamesContainer}>
-          <Games
-            image={require("../../assets/horizon-zero-dawn.png")}
-            cost="R$200.00"
-            score="500"
-            onClick={() => navigation.navigate("Details")}
-          >
-            Orizon TOP
-          </Games>
-          <Games
-            image={require("../../assets/the-witcher-iii-wild-hunt.png")}
-            cost="R$70.00"
-            score="500"
-            onClick={() => navigation.navigate("Details")}
-          >
-            The Witcher
-          </Games>
+          {dataGame.map((item) => (
+            <Games
+              key={item.id}
+              image={`${item.image}`}
+              cost={`R${item.price}`}
+              score={`${item.score}`}
+              onClick={() => handleNavigateToDetails(item.id)}
+            >
+              {item.name}
+            </Games>
+          ))}
         </View>
       </ScrollView>
     </View>

@@ -5,24 +5,24 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Home from "./pages/Home";
 import Details from "./pages/Details";
 
-const Stack = createStackNavigator();
+const { Navigator, Screen } = createStackNavigator();
 
 export default function Routes() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
+      <Navigator>
+        <Screen
           name="Home"
           component={Home}
           options={{ headerShown: false }} //remove header
         />
 
-        <Stack.Screen
+        <Screen
           name="Details"
           component={Details}
           options={{ headerShown: true }}
         />
-      </Stack.Navigator>
+      </Navigator>
     </NavigationContainer>
   );
 }

@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
   },
 
   gamesContainer: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-around",
   },
 });
