@@ -9,12 +9,13 @@ export default function Games(props) {
 
     return `${description.substring(0, 25)}...`;
   }
-
+  
   return (
     <TouchableOpacity style={styles.container} onPress={props.onClick}>
       <Image
-        // source={require(`../../assets/${props.image}`)}
-        source={require(`../../assets/call-of-duty-infinite-warfare.png`)}
+        source={{
+          uri: `${props.image}`,
+        }}
         style={styles.gameImage}
       />
       <Text style={styles.gameName}>
