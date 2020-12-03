@@ -13,7 +13,7 @@ export default function Details({ navigation }) {
   const { id } = routes.params;
 
   navigation.setOptions({
-    headerTitle: "Detalhes do produto",
+    headerTitle: `Detalhes do produto`,
   });
 
   useEffect(() => {
@@ -32,14 +32,12 @@ export default function Details({ navigation }) {
     <ScrollView style={styles.container}>
       {dataGame.map((item) => (
         <React.Fragment key={item.id}>
-          <View style={styles.productInformation} >
+          <View style={styles.productInformation}>
             <Image
-              source={{
-                uri: item.image,
-              }}
-              // style={styles.gameImage}
+              source={{ uri: `${item.image}` }}
+              style={{ width: 170, height: 170 }}
             />
-
+            {/* <Text>{item.image}</Text> */}
             <View>
               <Text style={styles.productName}>{item.name}</Text>
             </View>
