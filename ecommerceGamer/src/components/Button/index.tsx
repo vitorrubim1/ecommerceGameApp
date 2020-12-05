@@ -3,14 +3,10 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export default function Button() {
-  function handleInsertCart() {
-    alert("hello");
-  }
-
+export default function Button(props) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={handleInsertCart}>
+      <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Comprar</Text>
       </TouchableOpacity>
     </View>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 import { useRoute } from "@react-navigation/native"; //para pegar parametros enviados para este componente
 
@@ -13,7 +13,7 @@ export default function Details({ navigation }) {
   const { id } = routes.params;
 
   navigation.setOptions({
-    headerTitle: `Detalhes do produto`,
+    headerTitle: `Product Details`,
   });
 
   useEffect(() => {
@@ -37,7 +37,6 @@ export default function Details({ navigation }) {
               source={{ uri: `${item.image}` }}
               style={{ width: 170, height: 170 }}
             />
-            {/* <Text>{item.image}</Text> */}
             <View>
               <Text style={styles.productName}>{item.name}</Text>
             </View>
@@ -48,14 +47,17 @@ export default function Details({ navigation }) {
 
           <View>
             <Text style={styles.description}>
-              The game - {item.name} is a fantastic game, one of the best of the
-              new generation, according to players and critics it reached a
-              score of <Text style={{ color: "#ad1919" }}>{item.score}</Text>
+              The game -
+              <Text style={{ fontFamily: "Roboto_700Bold" }}> {item.name} </Text>
+              is a fantastic game, one of the best of the new generation,
+              according to players and critics it reached a
+              <Text style={{ fontFamily: "Roboto_700Bold" }}> score </Text>of
+              <Text style={{ color: "#ad1919" }}> {item.score}</Text>
             </Text>
 
             <View style={styles.line} />
 
-            <Button />
+            <Button id={item.id}/>
           </View>
         </React.Fragment>
       ))}

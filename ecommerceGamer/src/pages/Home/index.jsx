@@ -29,11 +29,9 @@ export default function Home() {
         />
 
         <View style={styles.textContainer}>
-          <Text style={styles.text}>JOGOS</Text>
+          <Text style={styles.text}>GAMES</Text>
           <Text style={styles.text}> • </Text>
-          <Text style={[styles.text, { color: "#9e9e9e" }]}>
-            Filtro aplicado
-          </Text>
+          <Text style={[styles.text, { color: "#9e9e9e" }]}>THE BEST</Text>
 
           <TouchableOpacity style={styles.filterButton}>
             <MaterialIcons name="filter-list" size={24} color="#000" />
@@ -44,21 +42,12 @@ export default function Home() {
       <View style={styles.line} />
 
       <ScrollView>
-        <Text
-          style={[
-            styles.text,
-            { marginHorizontal: "5%", marginVertical: "3%" },
-          ]}
-        >
-          THE BEST
-        </Text>
-
         <View style={styles.gamesContainer}>
           {dataGame.map((item) => (
             <Games
               key={item.id}
               image={`${item.image}`}
-              cost={`R${item.price}`}
+              cost={`${item.price}`}
               score={`${item.score}`}
               onClick={() => handleNavigateToDetails(item.id)}
             >

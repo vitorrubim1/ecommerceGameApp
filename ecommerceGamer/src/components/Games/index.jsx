@@ -22,7 +22,7 @@ export default function Games(props) {
         {handleFilterDescription(`${props.children}`)}
       </Text>
       <View opacity={0.5}>
-        <Text>{props.cost}</Text>
+        <Text>R${props.cost}</Text>
       </View>
 
       <View style={styles.score}>
